@@ -1,0 +1,28 @@
+<!--Configuration settings for the session factory-->
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!--Database connection settings, we tell hibernate how to connect with our database-->
+        <property name="connection.driver_class">org.h2.Driver</property>
+        <property name="connection.url">jdbc:h2:./data/worldbank</property>
+        <property name="connection.username">sa</property>
+
+
+        <!--SQL dialect (specific to the vendor we chose since each vendor has slightly diff features)-->
+        <property name="dialect">org.hibernate.dialect.H2Dialect</property>
+
+        <!--Calls upon a Hibernate tool to generate de db schema based on our annotated entities-->
+        <!--hibernate mapping to data definition language-->
+        <property name="hbm2ddl.auto">update</property>
+        <!--<property name="hbm2ddl.auto">create</property>-->
+
+        <!--Show the queries as performed (useful to debug)-->
+        <property name="show_sql">true</property>
+
+        <!--Name the annotated entity classes-->
+        <mapping class="com.imprender.project6internetuse.model.Country"/>
+
+
+    </session-factory>
+</hibernate-configuration>
